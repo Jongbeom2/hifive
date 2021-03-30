@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/check", (req, res) => {
+  res.send(true);
+});
+
 app.get("/test", (req, res) => {
   console.time("Get /test");
   let cnt = 0;
