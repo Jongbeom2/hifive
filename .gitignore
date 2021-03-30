@@ -1,0 +1,5 @@
+node_modules/
+build/
+yarn-error.log
+debug.log
+*.env
