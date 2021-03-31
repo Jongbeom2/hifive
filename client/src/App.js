@@ -2,8 +2,8 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
-const API_URL = "http://localhost:4000";
-// const API_URL = "http://localhost:4000";
+const API_URL =
+  process.env.NODE_ENV === "production" ? "" : "http://localhost:4000";
 const App = () => {
   const [hifiveNum, setHifiveNum] = useState(0);
   useEffect(() => {

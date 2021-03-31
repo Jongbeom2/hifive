@@ -18,33 +18,20 @@ if (!port) {
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.get("/check", (req, res) => {
   res.send(true);
-});
-
-app.get("/test", (req, res) => {
-  console.time("Get /test");
-  let cnt = 0;
-  for (let i = 0; i < 4000000000; i++) {
-    cnt++;
-  }
-  console.timeEnd("Get /test");
-  res.send("Test Finished");
-});
-
-app.get("/test2", (req, res) => {
-  console.log("Get /test2");
-  res.send("Test2 Finished");
 });
 
 app.post("/hifive", (req, res) => {
   console.log("Post /hifive");
   io.emit("hifive");
   res.send(true);
+});
+
+app.get("*", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
 io.on("connect", (socket) => {
