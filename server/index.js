@@ -12,7 +12,7 @@ const io = require("socket.io")(http, {
   },
 });
 
-const REDIS_HOST = process.env.NODE_ENV === "production" ? "54.180.15.252" : "";
+const REDIS_HOST = process.env.NODE_ENV === "production" ? "172.26.13.106" : "";
 
 const redis = require("redis");
 
