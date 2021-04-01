@@ -20,10 +20,12 @@ try {
   const publisher = redis.createClient({
     host: REDIS_HOST,
     port: "6379",
+    password: "jb",
   });
   const subscriber = redis.createClient({
     host: REDIS_HOST,
     port: "6379",
+    password: "jb",
   });
 
   if (!port) {
