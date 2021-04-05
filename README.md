@@ -18,9 +18,7 @@ Redis는 다양한 기능을 제공함. 여기서는 그 중에서 pubsub 기능
 
 ### 두 환경 아키텍처 차이
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71c6a0cf-a7fa-4940-8659-2c34c686f7df/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71c6a0cf-a7fa-4940-8659-2c34c686f7df/Untitled.png)
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/835973e3-b045-41e7-b83b-612879edbea4/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/835973e3-b045-41e7-b83b-612879edbea4/Untitled.png)
+[Amazon ElastiCache(Redis)를 이용한 채팅 애플리케이션 구성 방법 | Amazon Web Services](https://aws.amazon.com/ko/blogs/korea/how-to-build-a-chat-application-with-amazon-elasticache-for-redis/)
 
 # 개발시 Redis pubsub 사용하기
 
@@ -29,24 +27,10 @@ Redis는 다양한 기능을 제공함. 여기서는 그 중에서 pubsub 기능
 ### Redis 잘 작동하는 지 확인하기
 
 1. redis-server를 실행하여 Redis server를 실행함.
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c1cac248-2de9-4671-b47e-7bd6c99df636/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c1cac248-2de9-4671-b47e-7bd6c99df636/Untitled.png)
-
 2. redis-cli를 이용하여 Redis client를 실행함 (Redis server 꺼져있으면 실행 안됨).
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d8512895-f5ae-4ded-bcbc-014e254a6de7/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d8512895-f5ae-4ded-bcbc-014e254a6de7/Untitled.png)
-
 3. Redis client에서 CHAT이라는 channel을 subscribe 함.
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d01962e-1480-4930-8158-4e0db7fddcf6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d01962e-1480-4930-8158-4e0db7fddcf6/Untitled.png)
-
 4. Redis client에서 CHAT이라는 channel을 publish하고 "Hello World"라는 메세지를 보냄.
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13aae9a6-017c-46ad-9d1d-da34907a3107/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13aae9a6-017c-46ad-9d1d-da34907a3107/Untitled.png)
-
 5. CHAT channel을 subscribe하는 client에서 받은 메세지를 확인함.
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4334434c-0bd9-444f-beb8-6be1bf615fce/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4334434c-0bd9-444f-beb8-6be1bf615fce/Untitled.png)
 
 # Redis를 이용하여 웹 어플리케이션 구현하기
 
@@ -87,5 +71,3 @@ Redis는 다양한 기능을 제공함. 여기서는 그 중에서 pubsub 기능
 ### 결과
 
 - 서로 다른 유저가 로드밸런서로 같은 요청을 하였지만, 서로 다른 인스턴스에 연결된 경우에도 pub/sub이 잘 구현됨.
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b63b8f2-0ed4-409f-aef8-0dd946bd53c4/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b63b8f2-0ed4-409f-aef8-0dd946bd53c4/Untitled.png)
