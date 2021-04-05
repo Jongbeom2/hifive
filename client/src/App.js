@@ -20,7 +20,7 @@ const App = () => {
   };
   return (
     <div className="main">
-      <div className="title">Pub-Sub Tutorial</div>
+      <div className="title">Pub-Sub with Redis</div>
       <div className="content">HIFIVE : {hifiveNum}</div>
       <button className="button" onClick={onClickBtn}>
         🤚
