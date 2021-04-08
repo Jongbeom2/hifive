@@ -3,4 +3,3 @@ build/
 yarn-error.log
 debug.log
 *.env
-Dockerfile
