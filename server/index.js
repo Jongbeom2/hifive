@@ -59,14 +59,16 @@ try {
     }
   });
 
-  subscriber.subscribe("hifive");
+  subscriber.subscribe("hifive", () => {
+    console.log("connected redis");
+  });
 
   app.get("*", (req, res, next) => {
     res.sendFile(path.join(__dirname, "./build-client", "index.html"));
   });
 
   io.on("connect", (socket) => {
-    console.log("connected");
+    console.log("connected socket");
   });
 
   http.listen(port, () => {
