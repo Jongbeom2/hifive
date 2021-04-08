@@ -36,7 +36,7 @@ try {
 
   app.use(cors());
 
-  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.use(express.static(path.join(__dirname, "./build-client")));
 
   app.get("/test", (req, res) => {
     console.log("Get /test");
@@ -62,7 +62,7 @@ try {
   subscriber.subscribe("hifive");
 
   app.get("*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+    res.sendFile(path.join(__dirname, "./build-client", "index.html"));
   });
 
   io.on("connect", (socket) => {
