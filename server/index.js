@@ -50,11 +50,14 @@ try {
 
   app.post("/hifive", (req, res) => {
     console.log("Post /hifive");
-    publisher.publish("hifive", "hifive");
+    publisher.publish("hifive", "hifive", () => {
+      console.log("send message to redis : ", "hifive");
+    });
     res.send(true);
   });
 
   subscriber.on("message", (channel, message) => {
+    console.log("get message from redis : ", message);
     if (message === "hifive") {
       io.emit("hifive");
     }
