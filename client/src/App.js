@@ -7,7 +7,9 @@ const API_URL =
 const App = () => {
   const [hifiveNum, setHifiveNum] = useState(0);
   useEffect(() => {
-    const socket = socketIOClient(API_URL);
+    const socket = socketIOClient(API_URL, {
+      transports: ["websocket"],
+    });
     socket.on("hifive", () => {
       setHifiveNum((hifive) => hifive + 1);
     });
