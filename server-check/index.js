@@ -26,6 +26,7 @@ try {
   });
 
   app.get("/check", (req, res) => {
+    console.log("Get /check");
     res.send(true);
   });
 
@@ -36,6 +37,7 @@ try {
       console.log(result);
       res.send(result.data);
     } catch (error) {
+      console.error(result);
       res.send(false);
     }
   });

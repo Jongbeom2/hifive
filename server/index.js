@@ -44,6 +44,7 @@ try {
   });
 
   app.get("/check", (req, res) => {
+    console.log("Get /check");
     res.send(true);
   });
 
